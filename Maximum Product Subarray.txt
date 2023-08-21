@@ -1,0 +1,21 @@
+// two pointer.. 1 from left..2 from right... multiply from both sides..
+// whichever product is zero..update it to One
+// find the max...
+
+
+var maxProduct = function(nums) {
+    let max= nums[0]
+    let leftProduct = 1
+    let rightProduct = 1
+
+    for(let i=0; i<nums.length; i++){
+        if(leftProduct === 0) leftProduct = 1
+        if(rightProduct ===0) rightProduct = 1
+
+        leftProduct *= nums[i]
+        rightProduct *= nums[nums.length -i - 1]
+
+        max = Math.max(max,Math.max(leftProduct, rightProduct))
+    }
+return max
+}
