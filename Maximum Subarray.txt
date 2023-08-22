@@ -1,4 +1,5 @@
 Using Kaden's algo
+	- if sum < 0 ... drop that sum
 
 var maxSubArray = function(nums) {
 

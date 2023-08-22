@@ -1,0 +1,53 @@
+// using stack/array
+// first push the open bracket
+//the check  if the current item is closing bracket and the top/last itme is the same type of open bracket....then pop
+
+
+var isValid = function (s) {
+   
+    let arr = []
+
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] === '(' || s[i] === '[' || s[i] === '{') arr.push(s[i])
+
+        else {
+            let top = arr[arr.length - 1];
+            if (s[i] === ')' && top === '(' || s[i] === ']' && top === '[' || s[i] === '}' && top === '{'){
+                 arr.pop() 
+                 }else {
+                      return false 
+                      }
+            
+
+        }
+    }
+
+    if (arr.length === 0) {
+        return true
+    }else {
+        return false
+    }
+
+    
+
+
+
+
+
+    // s = s.split("");
+    // var stack = [];
+    // for (var z of s) {
+    //     if (z === "(" || z === "{" || z === "[") {
+    //         stack.push(z);
+    //     } else {
+    //         var top = stack[stack.length - 1];
+    //         if (z === ")" && top === "(" || z === "]" && top === "[" || z === "}" && top === "{")
+    //             stack.pop();
+    //         else
+    //             return false;
+    //     }
+    // }
+    // return stack.length === 0;
+
+
+};
