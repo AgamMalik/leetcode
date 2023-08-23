@@ -1,0 +1,38 @@
+
+
+
+
+
+var lengthOfLongestSubstring = function(s) {
+    let set = new Set()
+
+    let max = 0
+    let left = 0
+    let right = 0
+
+    while(right<s.length){
+        let char = s.charAt(right)
+        if(!set.has(char)){ // check if character is there..if not then add
+        set.add(char)
+        max =  Math.max(max, right - left + 1)  // window size
+        right ++
+        }else{
+            // if character is not added means we got a duplicate character..then we have to remove that character from set and move the left pointer
+
+            //while loop until the left character is equals to Char..
+            //this loop will remove all the character present before the the character which we are removing
+            while(s.charAt(left) !== char){
+                set.delete(s.charAt(left))
+                left++
+            }
+            //remove the actual character
+            set.delete(char)
+            left ++
+        }
+
+    }
+    return max
+
+   
+};
+
